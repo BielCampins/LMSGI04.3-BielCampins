@@ -1,5 +1,4 @@
 {
-  "$schema": "https://example.com/customer.schema.json",
   "customers": [
     {
       "cust_id": 1,
