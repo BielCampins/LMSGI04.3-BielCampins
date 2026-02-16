@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/customer.schema.json",
+  "title": "Customer",
+  "type": "object",
+  "required": ["cust_id", "fed_id", "type"],
+  "properties": {
+    "cust_id": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["individual", "business"]
+    },
+    "address": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "fed_id": {
+      "type": "string"
+    },
+    "postal_code": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": ["MA", "NH", "RI", "VE", "CN", "NY"]
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "type": { "const": "individual" },
+        "first_name_ind": { "type": "string" },
+        "last_name_ind": { "type": "string" },
+        "birth_date": { "type": "string", "format": "date" }
+      },
+      "required": ["first_name_ind", "last_name_ind"],
+      "additionalProperties": false
+    },
+    {
+      "properties": {
+        "type": { "const": "business" },
+        "name": { "type": "string" },
+        "state_id": { "type": "string" },
+        "incorp_date": { "type": "string", "format": "date" },
+        "officer": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["officer_id", "first_name_off", "last_name_off"],
+            "properties": {
+              "officer_id": { "type": "integer" },
+              "end_date": { "type": "string", "format": "date" },
+              "first_name_off": { "type": "string" },
+              "last_name_off": { "type": "string" },
+              "start_date": { "type": "string", "format": "date" },
+              "title": {
+                "type": "string",
+                "enum": ["President", "CEO"]
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["name", "state_id", "officer"],
+      "additionalProperties": false
+    }
+  ],
+  "additionalProperties": false
+}
