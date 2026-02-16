@@ -1,0 +1,45 @@
+{
+  "$schema": "https://example.com/customer.schema.json",
+  "customers": [
+    {
+      "cust_id": 1,
+      "type": "individual",
+      "fed_id": "111-11-1111",
+      "address": "123 Main St",
+      "city": "Boston",
+      "postal_code": "02101",
+      "state": "MA",
+      "first_name_ind": "John",
+      "last_name_ind": "Smith",
+      "birth_date": "1985-05-15"
+    },
+    {
+      "cust_id": 10,
+      "type": "business",
+      "fed_id": "99-9999999",
+      "address": "456 Industrial Rd",
+      "city": "New York",
+      "postal_code": "10001",
+      "state": "NY",
+      "name": "TechCorp Inc.",
+      "state_id": "NY-445566",
+      "incorp_date": "2000-03-20",
+      "officer": [
+        {
+          "officer_id": 1,
+          "first_name_off": "Alice",
+          "last_name_off": "Brown",
+          "start_date": "2010-01-01",
+          "title": "CEO"
+        },
+        {
+          "officer_id": 2,
+          "first_name_off": "Bob",
+          "last_name_off": "White",
+          "start_date": "2015-06-01",
+          "title": "President"
+        }
+      ]
+    }
+  ]
+}
